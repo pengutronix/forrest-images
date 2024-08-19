@@ -6,9 +6,9 @@ on:
       - main
 
 jobs:
-  base:
-    name: Base
-    runs-on: [self-hosted, forrest, debian-base]
+  bookworm-base:
+    name: Base (bookworm)
+    runs-on: [self-hosted, forrest, debian-bookworm-base]
     steps:
       - name: Set up runner machine
         run: |
@@ -28,10 +28,10 @@ jobs:
           sudo fstrim /
           echo "$PERSISTENCE_TOKEN" > ~/config/persist
 
-  yocto:
-    name: Yocto
-    needs: base
-    runs-on: [self-hosted, forrest, debian-yocto]
+  bookworm-yocto:
+    name: Yocto (bookworm)
+    needs: bookworm-base
+    runs-on: [self-hosted, forrest, debian-bookworm-yocto]
     steps:
       - name: Install Software
         run: |
