@@ -17,7 +17,7 @@ jobs:
           export DPKG_FORCE=confnew
           sudo -E apt-get update
           sudo -E apt-get --assume-yes dist-upgrade
-          sudo -E apt-get --assume-yes install git
+          sudo -E apt-get --assume-yes install git rsync ssh
           sudo -E apt-get --assume-yes autoremove
           sudo -E apt-get --assume-yes clean
       - name: Persist the disk image
@@ -43,6 +43,8 @@ jobs:
           sudo -E apt-get --assume-yes install build-essential chrpath diffstat gawk git lz4
           sudo -E apt-get --assume-yes autoremove
           sudo -E apt-get --assume-yes clean
+          sudo mkdir -p /srv/cache /srv/shared-git
+          mkdir ~/.yocto
       - name: Persist the disk image
         env:
           PERSISTENCE_TOKEN: ${{ secrets.PERSISTENCE_TOKEN }}
