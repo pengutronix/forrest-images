@@ -10,27 +10,32 @@ jobs:
     name: Base (bookworm)
     runs-on: [self-hosted, forrest, debian-bookworm-base]
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          path: setup-data
-      - name: Set up runner machine
+      - name: Install essential packages
         run: |
           sudo localectl set-locale en_US.UTF-8
           export DEBIAN_FRONTEND=noninteractive
           export DPKG_FORCE=confnew
           sudo -E apt-get update
           sudo -E apt-get --assume-yes dist-upgrade
-          sudo -E apt-get --assume-yes install git rsync ssh gcc
-          sudo $PWD/setup-data/base/setup.sh
+          sudo -E apt-get --assume-yes install git
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          path: setup-data
+      - name: Set up runner machine
+        run: |
+          export DEBIAN_FRONTEND=noninteractive
+          export DPKG_FORCE=confnew
+          sudo -E apt-get --assume-yes install rsync ssh gcc
+          $PWD/setup-data/base/setup.sh
           sudo -E apt-get --assume-yes autoremove
           sudo -E apt-get --assume-yes clean
+          rm -rf setup-data
       - name: Persist the disk image
         env:
           PERSISTENCE_TOKEN: ${{ secrets.PERSISTENCE_TOKEN }}
         if: ${{ env.PERSISTENCE_TOKEN != ''  }}
         run: |
-          rm -rf setup-data
           sudo fstrim /
           echo "$PERSISTENCE_TOKEN" > ~/config/persist
 
@@ -50,15 +55,15 @@ jobs:
           sudo -E apt-get update
           sudo -E apt-get --assume-yes dist-upgrade
           sudo -E apt-get --assume-yes install build-essential chrpath diffstat gawk lz4
-          sudo $PWD/setup-data/yocto/setup.sh
+          $PWD/setup-data/yocto/setup.sh
           sudo -E apt-get --assume-yes autoremove
           sudo -E apt-get --assume-yes clean
+          rm -rf setup-data
       - name: Persist the disk image
         env:
           PERSISTENCE_TOKEN: ${{ secrets.PERSISTENCE_TOKEN }}
         if: ${{ env.PERSISTENCE_TOKEN != ''  }}
         run: |
-          rm -rf setup-data
           sudo fstrim /
           echo "$PERSISTENCE_TOKEN" > ~/config/persist
 
@@ -67,6 +72,10 @@ jobs:
     needs: bookworm-base
     runs-on: [self-hosted, forrest, debian-bookworm-ptxdist]
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          path: setup-data
       - name: Install Software
         run: |
           pwd
@@ -75,14 +84,14 @@ jobs:
           export DPKG_FORCE=confnew
           sudo -E apt-get update
           sudo -E apt-get --assume-yes dist-upgrade
-          sudo $PWD/setup-data/ptxdist/setup.sh
+          $PWD/setup-data/ptxdist/setup.sh
           sudo -E apt-get --assume-yes autoremove
           sudo -E apt-get --assume-yes clean
+          rm -rf setup-data
       - name: Persist the disk image
         env:
           PERSISTENCE_TOKEN: ${{ secrets.PERSISTENCE_TOKEN }}
         if: ${{ env.PERSISTENCE_TOKEN != ''  }}
         run: |
-          rm -rf setup-data
           sudo fstrim /
           echo "$PERSISTENCE_TOKEN" > ~/config/persist
