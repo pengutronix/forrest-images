@@ -1,0 +1,9 @@
+Host ptxdist-cache
+  Hostname 10.0.2.2
+  User ptxdist-cache
+  IdentityFile ~/.ssh/id_ed25519
+
+Host yocto-cache
+  Hostname 10.0.2.2
+  User yocto-cache
+  IdentityFile ~/.ssh/id_ed25519
