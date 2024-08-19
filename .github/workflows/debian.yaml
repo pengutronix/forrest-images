@@ -54,7 +54,6 @@ jobs:
           export DPKG_FORCE=confnew
           sudo -E apt-get update
           sudo -E apt-get --assume-yes dist-upgrade
-          sudo -E apt-get --assume-yes install build-essential chrpath diffstat gawk lz4
           $PWD/setup-data/yocto/setup.sh
           sudo -E apt-get --assume-yes autoremove
           sudo -E apt-get --assume-yes clean
