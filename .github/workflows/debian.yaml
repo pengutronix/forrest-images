@@ -26,7 +26,7 @@ jobs:
         run: |
           export DEBIAN_FRONTEND=noninteractive
           export DPKG_FORCE=confnew
-          sudo -E apt-get --assume-yes install rsync ssh gcc
+          sudo -E apt-get --assume-yes install gcc python-is-python3 rsync ssh
           $PWD/setup-data/base/setup.sh
           sudo -E apt-get --assume-yes autoremove
           sudo -E apt-get --assume-yes clean
