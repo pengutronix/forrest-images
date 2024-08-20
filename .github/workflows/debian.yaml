@@ -23,14 +23,7 @@ jobs:
         with:
           path: setup-data
       - name: Set up runner machine
-        run: |
-          export DEBIAN_FRONTEND=noninteractive
-          export DPKG_FORCE=confnew
-          sudo -E apt-get --assume-yes install rsync ssh gcc
-          $PWD/setup-data/base/setup.sh
-          sudo -E apt-get --assume-yes autoremove
-          sudo -E apt-get --assume-yes clean
-          rm -rf setup-data
+        run: $PWD/setup-data/base/setup.sh
       - name: Persist the disk image
         env:
           PERSISTENCE_TOKEN: ${{ secrets.PERSISTENCE_TOKEN }}
@@ -49,15 +42,7 @@ jobs:
         with:
           path: setup-data
       - name: Install Software
-        run: |
-          export DEBIAN_FRONTEND=noninteractive
-          export DPKG_FORCE=confnew
-          sudo -E apt-get update
-          sudo -E apt-get --assume-yes dist-upgrade
-          $PWD/setup-data/yocto/setup.sh
-          sudo -E apt-get --assume-yes autoremove
-          sudo -E apt-get --assume-yes clean
-          rm -rf setup-data
+        run: $PWD/setup-data/yocto/setup.sh
       - name: Persist the disk image
         env:
           PERSISTENCE_TOKEN: ${{ secrets.PERSISTENCE_TOKEN }}
@@ -76,17 +61,7 @@ jobs:
         with:
           path: setup-data
       - name: Install Software
-        run: |
-          pwd
-          ls -la
-          export DEBIAN_FRONTEND=noninteractive
-          export DPKG_FORCE=confnew
-          sudo -E apt-get update
-          sudo -E apt-get --assume-yes dist-upgrade
-          $PWD/setup-data/ptxdist/setup.sh
-          sudo -E apt-get --assume-yes autoremove
-          sudo -E apt-get --assume-yes clean
-          rm -rf setup-data
+        run: $PWD/setup-data/ptxdist/setup.sh
       - name: Persist the disk image
         env:
           PERSISTENCE_TOKEN: ${{ secrets.PERSISTENCE_TOKEN }}
