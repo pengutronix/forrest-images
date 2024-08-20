@@ -14,7 +14,8 @@ echo "shared-git /srv/shared-git 9p defaults,nofail 0 0" | sudo tee -a /etc/fsta
 
 prepare
 
-sudo -E apt-get --assume-yes purge openssh-server
+sudo systemctl stop unattended-upgrades
+sudo -E apt-get --assume-yes purge openssh-server unattended-upgrades
 sudo -E apt-get --assume-yes install rsync ssh gcc
 
 cleanup
