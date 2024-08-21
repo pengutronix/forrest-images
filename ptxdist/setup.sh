@@ -7,12 +7,12 @@ self="$(realpath "${0}")" && selfdir="$(dirname "${self}")"
 source "${selfdir}/../common/common.sh"
 
 sudo cp "$selfdir/ptx.list" /etc/apt/sources.list.d/
-sudo cp "$selfdir/*.gpg" /etc/apt/trusted.gpg.d/
+sudo cp "$selfdir/pengutronix-archive-keyring-2024.gpg" /etc/apt/trusted.gpg.d/
 
 cat "$selfdir/ssh_config" >> ~/.ssh/config
 
 sudo mkdir -p /srv/cache
-echo "cache /srv/cache 9p defaults,nofail 0 0" | tee -a /etc/fstab
+echo "cache /srv/cache 9p defaults,nofail 0 0" | sudo tee -a /etc/fstab
 
 prepare
 
