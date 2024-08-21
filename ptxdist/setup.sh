@@ -19,6 +19,7 @@ prepare
 sudo apt-get install -y --no-install-recommends \
 	oselas.toolchain-2023.07.1-arm-v7a-linux-gnueabihf \
 	oselas.toolchain-2023.07.1-x86-64-unknown-linux-gnu \
+	ptxdist-2024.08.0 \
 	bc bison flex gawk libxml-parser-perl python3-jinja2 python3-setuptools texinfo unzip wget
 
 cleanup
