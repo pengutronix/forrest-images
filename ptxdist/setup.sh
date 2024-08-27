@@ -17,6 +17,10 @@ echo "cache /srv/cache 9p defaults,nofail 0 0" | sudo tee -a /etc/fstab
 prepare
 
 sudo apt-get install -y --no-install-recommends \
+	oselas.toolchain-2023.07.1-mipsel-softfloat-linux-gnu \
+	oselas.toolchain-2023.07.1-mips-softfloat-linux-gnu \
+	oselas.toolchain-2023.07.1-aarch64-v8a-linux-gnu \
+	oselas.toolchain-2023.07.1-arm-1136jfs-linux-gnueabihf \
 	oselas.toolchain-2023.07.1-arm-v7a-linux-gnueabihf \
 	oselas.toolchain-2023.07.1-x86-64-unknown-linux-gnu \
 	ptxdist-2024.08.0 \
