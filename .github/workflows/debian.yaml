@@ -32,6 +32,25 @@ jobs:
           sudo fstrim /
           echo "$PERSISTENCE_TOKEN" > ~/config/persist
 
+  bookworm-debos:
+    name: Debos (bookworm)
+    needs: bookworm-base
+    runs-on: [self-hosted, forrest, debian-bookworm-debos]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          path: setup-data
+      - name: Install Software
+        run: $PWD/setup-data/debos/setup.sh
+      - name: Persist the disk image
+        env:
+          PERSISTENCE_TOKEN: ${{ secrets.PERSISTENCE_TOKEN }}
+        if: ${{ env.PERSISTENCE_TOKEN != '' }}
+        run: |
+          sudo fstrim /
+          echo "$PERSISTENCE_TOKEN" > ~/config/persist
+
   bookworm-yocto:
     name: Yocto (bookworm)
     needs: bookworm-base
