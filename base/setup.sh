@@ -20,13 +20,19 @@ sudo tune2fs -O "^has_journal" /dev/vda1
 mkdir -p ~/.ssh
 cat "$selfdir/known_hosts" >> ~/.ssh/known_hosts
 
+# Git repositories that can be used as reference to speed up clones.
 sudo mkdir -p /srv/shared-git
 echo "shared-git /srv/shared-git 9p defaults,nofail 0 0" | sudo tee -a /etc/fstab
 
 prepare
 
+# The unattended-upgrades service comes pre-installed on the Debian cloud
+# images we use. It may however with our apt-get calls, so it needs to be
+# stopped and can then be uninstalled.
+# The openssh-server is also pre-installed but not used.
 sudo systemctl stop unattended-upgrades
 sudo -E apt-get --assume-yes purge openssh-server unattended-upgrades
+
 sudo -E apt-get --assume-yes install rsync ssh gcc
 
 cleanup
