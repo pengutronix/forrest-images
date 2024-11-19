@@ -28,6 +28,7 @@ sudo apt-get install -y --no-install-recommends \
 	oselas.toolchain-2023.07.1-x86-64-unknown-linux-gnu \
 	ptxdist-2023.12.0 \
 	ptxdist-2024.08.0 \
+	ptxdist-2024.10.0 \
 	build-essential bc bison cpio flex gawk libxml-parser-perl \
 	python3-jinja2 python3-setuptools python3-venv \
 	texinfo unzip wget
