@@ -11,8 +11,11 @@ sudo cp "$selfdir/pengutronix-archive-keyring-2024.gpg" /etc/apt/trusted.gpg.d/
 
 cat "$selfdir/ssh_config" >> ~/.ssh/config
 
-sudo mkdir -p /srv/cache
-echo "cache /srv/cache 9p defaults,nofail 0 0" | sudo tee -a /etc/fstab
+# PTXDist needs to be able to write to the SRCDIR in /srv/cache/src.
+# The cache is however readonly. Use an overlayfs to make it writable.
+sudo mkdir -p /srv/cache /srv/cache-ro /srv/cache-overlay /srv/cache-work
+echo "cache /srv/cache-ro 9p defaults,nofail,ro 0 0" | sudo tee -a /etc/fstab
+echo "overlayfs /srv/cache overlayfs defaults,lowerdir=/srv/cache-ro,upperdir=/srv/cache-overlay,workdir=/srv/cache-work 0 0" | sudo tee -a /etc/fstab
 
 prepare
 
