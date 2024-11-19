@@ -29,7 +29,7 @@ sudo apt-get install -y --no-install-recommends \
 	ptxdist-2023.12.0 \
 	ptxdist-2024.08.0 \
 	build-essential bc bison cpio flex gawk libxml-parser-perl \
-	python3-jinja2 python3-setuptools \
+	python3-jinja2 python3-setuptools python3-venv \
 	texinfo unzip wget
 
 cleanup
