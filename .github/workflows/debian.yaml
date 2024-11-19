@@ -19,12 +19,15 @@ jobs:
           sudo -E apt-get update
           sudo -E apt-get --assume-yes dist-upgrade
           sudo -E apt-get --assume-yes install git
+
       - name: Checkout
         uses: actions/checkout@v4
         with:
           path: setup-data
+
       - name: Set up runner machine
         run: $PWD/setup-data/base/setup.sh
+
       - name: Persist the disk image
         env:
           PERSISTENCE_TOKEN: ${{ secrets.PERSISTENCE_TOKEN }}
@@ -42,8 +45,10 @@ jobs:
         uses: actions/checkout@v4
         with:
           path: setup-data
+
       - name: Install Software
         run: $PWD/setup-data/debos/setup.sh
+
       - name: Persist the disk image
         env:
           PERSISTENCE_TOKEN: ${{ secrets.PERSISTENCE_TOKEN }}
@@ -61,8 +66,10 @@ jobs:
         uses: actions/checkout@v4
         with:
           path: setup-data
+
       - name: Install Software
         run: $PWD/setup-data/yocto/setup.sh
+
       - name: Persist the disk image
         env:
           PERSISTENCE_TOKEN: ${{ secrets.PERSISTENCE_TOKEN }}
@@ -80,8 +87,10 @@ jobs:
         uses: actions/checkout@v4
         with:
           path: setup-data
+
       - name: Install Software
         run: $PWD/setup-data/ptxdist/setup.sh
+
       - name: Persist the disk image
         env:
           PERSISTENCE_TOKEN: ${{ secrets.PERSISTENCE_TOKEN }}
