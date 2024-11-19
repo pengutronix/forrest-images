@@ -12,11 +12,6 @@ source "${selfdir}/../common/common.sh"
 # The persist action calls fstrim for disk images that are persisted.
 sudo sed -i "s/,discard,/,nodiscard,/" /etc/fstab
 
-# There is never a case where we have to recover from an unclean shutdown,
-# as the disk image will be thrown away if the machine is stopped.
-# There is thus no need for a filesystem journal.
-sudo tune2fs -O "^has_journal" /dev/vda1
-
 mkdir -p ~/.ssh
 cat "$selfdir/known_hosts" >> ~/.ssh/known_hosts
 
