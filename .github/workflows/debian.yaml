@@ -28,13 +28,9 @@ jobs:
       - name: Set up runner machine
         run: $PWD/setup-data/base/setup.sh
 
-      - name: Persist the disk image
-        env:
-          PERSISTENCE_TOKEN: ${{ secrets.PERSISTENCE_TOKEN }}
-        if: ${{ env.PERSISTENCE_TOKEN != '' }}
-        run: |
-          sudo fstrim /
-          echo "$PERSISTENCE_TOKEN" > ~/config/persist
+      - uses: forrest-runner/persist@main
+        with:
+          token: ${{ secrets.PERSISTENCE_TOKEN }}
 
   bookworm-debos:
     name: Debos (bookworm)
@@ -49,13 +45,9 @@ jobs:
       - name: Install Software
         run: $PWD/setup-data/debos/setup.sh
 
-      - name: Persist the disk image
-        env:
-          PERSISTENCE_TOKEN: ${{ secrets.PERSISTENCE_TOKEN }}
-        if: ${{ env.PERSISTENCE_TOKEN != '' }}
-        run: |
-          sudo fstrim /
-          echo "$PERSISTENCE_TOKEN" > ~/config/persist
+      - uses: forrest-runner/persist@main
+        with:
+          token: ${{ secrets.PERSISTENCE_TOKEN }}
 
   bookworm-yocto:
     name: Yocto (bookworm)
@@ -70,13 +62,9 @@ jobs:
       - name: Install Software
         run: $PWD/setup-data/yocto/setup.sh
 
-      - name: Persist the disk image
-        env:
-          PERSISTENCE_TOKEN: ${{ secrets.PERSISTENCE_TOKEN }}
-        if: ${{ env.PERSISTENCE_TOKEN != '' }}
-        run: |
-          sudo fstrim /
-          echo "$PERSISTENCE_TOKEN" > ~/config/persist
+      - uses: forrest-runner/persist@main
+        with:
+          token: ${{ secrets.PERSISTENCE_TOKEN }}
 
   bookworm-ptxdist:
     name: PTXdist (bookworm)
@@ -91,10 +79,6 @@ jobs:
       - name: Install Software
         run: $PWD/setup-data/ptxdist/setup.sh
 
-      - name: Persist the disk image
-        env:
-          PERSISTENCE_TOKEN: ${{ secrets.PERSISTENCE_TOKEN }}
-        if: ${{ env.PERSISTENCE_TOKEN != '' }}
-        run: |
-          sudo fstrim /
-          echo "$PERSISTENCE_TOKEN" > ~/config/persist
+      - uses: forrest-runner/persist@main
+        with:
+          token: ${{ secrets.PERSISTENCE_TOKEN }}
