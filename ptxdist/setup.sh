@@ -15,7 +15,7 @@ cat "$selfdir/ssh_config" >> ~/.ssh/config
 # The cache is however readonly. Use an overlayfs to make it writable.
 sudo mkdir -p /srv/cache /srv/cache-ro /srv/cache-overlay /srv/cache-work
 echo "cache /srv/cache-ro 9p defaults,nofail,ro 0 0" | sudo tee -a /etc/fstab
-echo "overlayfs /srv/cache overlayfs defaults,lowerdir=/srv/cache-ro,upperdir=/srv/cache-overlay,workdir=/srv/cache-work,nofail,x-systemd.requires=srv-cache\x2dro.mount 0 0" | sudo tee -a /etc/fstab
+echo "overlay /srv/cache overlay defaults,lowerdir=/srv/cache-ro,upperdir=/srv/cache-overlay,workdir=/srv/cache-work,nofail,x-systemd.requires=srv-cache\x2dro.mount 0 0" | sudo tee -a /etc/fstab
 
 prepare
 
