@@ -2,3 +2,8 @@ Host yocto-cache
   Hostname 10.0.2.2
   User yocto-cache
   IdentityFile ~/.ssh/id_ed25519
+
+Host yoe-cache
+  Hostname 10.0.2.2
+  User yoe-cache
+  IdentityFile ~/.ssh/id_ed25519
