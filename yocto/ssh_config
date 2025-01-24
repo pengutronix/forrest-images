@@ -7,3 +7,8 @@ Host yoe-cache
   Hostname 10.0.2.2
   User yoe-cache
   IdentityFile ~/.ssh/id_ed25519
+
+Host rauc-community-cache
+  Hostname 10.0.2.2
+  User rauc-community-cache
+  IdentityFile ~/.ssh/id_ed25519
