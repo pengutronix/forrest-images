@@ -7,7 +7,7 @@ self="$(realpath "${0}")" && selfdir="$(dirname "${self}")"
 source "${selfdir}/../common/common.sh"
 
 sudo cp "$selfdir/ptx.list" /etc/apt/sources.list.d/
-sudo cp "$selfdir/pengutronix-archive-keyring-2024.gpg" /etc/apt/trusted.gpg.d/
+sudo cp "$selfdir/pengutronix-archive-keyring-2025.gpg" /etc/apt/trusted.gpg.d/
 
 cat "$selfdir/ssh_config" >> ~/.ssh/config
 
