@@ -1,5 +1,5 @@
-Image Generation Examples for Forrest
-=====================================
+Forrest Runner images used by Pengutronix
+=========================================
 
                                         ┏━━━━━━━━━━━━━━━┓
                                         ┃      Run      ┃
@@ -9,10 +9,13 @@ Image Generation Examples for Forrest
 
 ---
 
-This repository contains examples on how to generate images for the
-[Forrest](https://github.com/forrest-runner/forrest/) GitHub action runner runner.
-If these words do not make sense to you, you should start your journey there.
+This repository contains [Forrest][forrest-project] machine
+set up actions.
+If these words do not make sense to you, you should start your journey at the
+link above.
 
 There are jobs to:
 
 - [Generate Debian based images](.github/workflows/debian.yaml)
+
+[forrest-project]: https://github.com/forrest-runner/forrest/
