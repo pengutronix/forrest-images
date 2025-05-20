@@ -22,8 +22,8 @@ echo "shared-git /srv/shared-git 9p defaults,nofail 0 0" | sudo tee -a /etc/fsta
 prepare
 
 # The unattended-upgrades service comes pre-installed on the Debian cloud
-# images we use. It may however with our apt-get calls, so it needs to be
-# stopped and can then be uninstalled.
+# images we use. It may however conflict with our apt-get calls, so it needs
+# to be stopped and can then be uninstalled.
 # The openssh-server is also pre-installed but not used.
 sudo systemctl stop unattended-upgrades
 sudo -E apt-get --assume-yes purge openssh-server unattended-upgrades
