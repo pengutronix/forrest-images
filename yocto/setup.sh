@@ -17,6 +17,6 @@ echo "cache /srv/cache 9p defaults,nofail 0 0" | sudo tee -a /etc/fstab
 prepare
 
 sudo -E apt-get install --assume-yes --no-install-recommends \
-          build-essential chrpath diffstat gawk lz4
+          build-essential chrpath diffstat gawk lz4 tree
 
 cleanup
