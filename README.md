@@ -68,4 +68,12 @@ See the [workflow file](.github/workflows/debian.yaml) for more information.
 Refer to the [Forrest][forrest-project] documentation for information on how
 actually to use these machine images.
 
+---
+
+                                        ┏━━━━━━━━━━━━━━┓
+                                        ┃     Stop     ┃
+                                        ┃    Forrest   ┃
+                                        ┃     Stop     ┃
+                                        ┗━━━┯━━━━━━┯━━━┛
+
 [forrest-project]: https://github.com/forrest-runner/forrest/
