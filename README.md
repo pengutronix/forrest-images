@@ -46,24 +46,24 @@ repositories:
     forrest-images:
       persistence_token: [A RANDOM PERSISTENCE TOKEN]
       machines:
-        debian-bookworm-base:
+        debian-trixie-base:
           << : *image-generator
           base_image: /srv/gh-runner/forrest/images/debian-12-generic-amd64.raw
-        debian-bookworm-debos:
+        debian-trixie-debos:
           << : *image-generator
-          base_machine: pengutronix/forrest-images/debian-bookworm-base
-        debian-bookworm-ptxdist:
+          base_machine: pengutronix/forrest-images/debian-trixie-base
+        debian-trixie-ptxdist:
           << : *image-generator
-          base_machine: pengutronix/forrest-images/debian-bookworm-base
-        debian-bookworm-yocto:
+          base_machine: pengutronix/forrest-images/debian-trixie-base
+        debian-trixie-yocto:
           << : *image-generator
-          base_machine: pengutronix/forrest-images/debian-bookworm-base
+          base_machine: pengutronix/forrest-images/debian-trixie-base
 ```
 
 The jobs will set up images for use with debos, ptxdist and yocto jobs from
 plain Debian generic [cloud images](https://cloud.debian.org/images/cloud/).
 
-See the [workflow file](.github/workflows/debian-bookworm.yaml) for more information.
+See the [workflow file](.github/workflows/debian-trixie.yaml) for more information.
 
 Refer to the [Forrest][forrest-project] documentation for information on how
 actually to use these machine images.
