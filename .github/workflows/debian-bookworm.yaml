@@ -1,4 +1,4 @@
-name: Debian based machines
+name: Debian bookworm based machines
 
 on:
   push:

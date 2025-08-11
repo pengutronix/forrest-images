@@ -63,7 +63,7 @@ repositories:
 The jobs will set up images for use with debos, ptxdist and yocto jobs from
 plain Debian generic [cloud images](https://cloud.debian.org/images/cloud/).
 
-See the [workflow file](.github/workflows/debian.yaml) for more information.
+See the [workflow file](.github/workflows/debian-bookworm.yaml) for more information.
 
 Refer to the [Forrest][forrest-project] documentation for information on how
 actually to use these machine images.
