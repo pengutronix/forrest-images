@@ -6,7 +6,9 @@ self="$(realpath "${0}")" && selfdir="$(dirname "${self}")"
 
 source "${selfdir}/../common/common.sh"
 
-sudo cp "$selfdir/ptx.list" /etc/apt/sources.list.d/
+debian_release=$(grep '^VERSION_CODENAME=' /etc/os-release | cut -d= -f2)
+
+sudo cp "$selfdir/ptx-${debian_release}.list" /etc/apt/sources.list.d/ptx.list
 sudo cp "$selfdir/pengutronix-archive-keyring-2025.gpg" /etc/apt/trusted.gpg.d/
 
 cat "$selfdir/ssh_config" >> ~/.ssh/config
