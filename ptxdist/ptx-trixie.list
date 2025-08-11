@@ -1,0 +1,2 @@
+deb http://mirror.stw.pengutronix.de/ptx/debian trixie main
+deb http://mirror.stw.pengutronix.de/ptx/ptxinternal trixie ptx
