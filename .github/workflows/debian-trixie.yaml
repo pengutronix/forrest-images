@@ -1,0 +1,84 @@
+name: Debian trixie based machines
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  trixie-base:
+    name: Base (trixie)
+    runs-on: [self-hosted, forrest, debian-trixie-base]
+    steps:
+      - name: Install essential packages
+        run: |
+          sudo localectl set-locale en_US.UTF-8
+          export DEBIAN_FRONTEND=noninteractive
+          export DPKG_FORCE=confnew
+          sudo -E apt-get update
+          sudo -E apt-get --assume-yes dist-upgrade
+          sudo -E apt-get --assume-yes install git
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          path: setup-data
+
+      - name: Set up runner machine
+        run: $PWD/setup-data/base/setup.sh
+
+      - uses: forrest-runner/persist@main
+        with:
+          token: ${{ secrets.PERSISTENCE_TOKEN }}
+
+  trixie-debos:
+    name: Debos (trixie)
+    needs: trixie-base
+    runs-on: [self-hosted, forrest, debian-trixie-debos]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          path: setup-data
+
+      - name: Install Software
+        run: $PWD/setup-data/debos/setup.sh
+
+      - uses: forrest-runner/persist@main
+        with:
+          token: ${{ secrets.PERSISTENCE_TOKEN }}
+
+  trixie-yocto:
+    name: Yocto (trixie)
+    needs: trixie-base
+    runs-on: [self-hosted, forrest, debian-trixie-yocto]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          path: setup-data
+
+      - name: Install Software
+        run: $PWD/setup-data/yocto/setup.sh
+
+      - uses: forrest-runner/persist@main
+        with:
+          token: ${{ secrets.PERSISTENCE_TOKEN }}
+
+  trixie-ptxdist:
+    name: PTXdist (trixie)
+    needs: trixie-base
+    runs-on: [self-hosted, forrest, debian-trixie-ptxdist]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          path: setup-data
+
+      - name: Install Software
+        run: $PWD/setup-data/ptxdist/setup.sh
+
+      - uses: forrest-runner/persist@main
+        with:
+          token: ${{ secrets.PERSISTENCE_TOKEN }}
