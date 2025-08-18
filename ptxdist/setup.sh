@@ -10,8 +10,14 @@ debian_release=$(grep '^VERSION_CODENAME=' /etc/os-release | cut -d= -f2)
 
 sudo rm -f "/etc/apt/sources.list" "/etc/apt/sources.list.d/*"
 
-sudo cp "$selfdir/ptx-${debian_release}.list" /etc/apt/sources.list.d/ptx.list
-sudo cp "$selfdir/pengutronix-archive-keyring-2025.gpg" /etc/apt/trusted.gpg.d/
+if [ "${debian_release}" = "bookworm" ]
+then
+	sudo cp "$selfdir/ptx-${debian_release}.list" /etc/apt/sources.list.d/ptx.list
+	sudo cp "$selfdir/pengutronix-archive-keyring-2025.gpg" /etc/apt/trusted.gpg.d/
+else
+	sudo cp "$selfdir/ptx-${debian_release}.sources" /etc/apt/sources.list.d/ptx.sources
+	sudo cp "$selfdir/pengutronix-archive-keyring-2025.gpg" /usr/share/keyrings/pengutronix-archive-keyring.gpg
+fi
 
 cat "$selfdir/ssh_config" >> ~/.ssh/config
 
