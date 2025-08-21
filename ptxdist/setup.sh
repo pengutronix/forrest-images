@@ -30,12 +30,12 @@ echo "overlay /srv/cache overlay defaults,lowerdir=/srv/cache-ro,upperdir=/srv/c
 prepare
 
 sudo apt-get install -y --no-install-recommends \
-	oselas.toolchain-2023.07.1-mipsel-softfloat-linux-gnu \
-	oselas.toolchain-2023.07.1-mips-softfloat-linux-gnu \
-	oselas.toolchain-2023.07.1-aarch64-v8a-linux-gnu \
-	oselas.toolchain-2023.07.1-arm-1136jfs-linux-gnueabihf \
-	oselas.toolchain-2023.07.1-arm-v7a-linux-gnueabihf \
-	oselas.toolchain-2023.07.1-x86-64-unknown-linux-gnu \
+	oselas.toolchain-2024.11.1-mipsel-softfloat-linux-gnu \
+	oselas.toolchain-2024.11.1-mips-softfloat-linux-gnu \
+	oselas.toolchain-2024.11.1-aarch64-v8a-linux-gnu \
+	oselas.toolchain-2024.11.1-arm-1136jfs-linux-gnueabihf \
+	oselas.toolchain-2024.11.1-arm-v7a-linux-gnueabihf \
+	oselas.toolchain-2024.11.1-x86-64-unknown-linux-gnu \
 	ptxdist-2023.12.0 \
 	ptxdist-2024.08.0 \
 	ptxdist-2024.10.0 \
