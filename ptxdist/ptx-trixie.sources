@@ -1,8 +1,14 @@
 Types: deb
 URIs: http://mirror.stw.pengutronix.de/ptx/debian/
 Suites: trixie
-Components: main contrib non-free
+Components: main
 Signed-By: /usr/share/keyrings/pengutronix-archive-keyring.gpg
+
+Types: deb
+URIs: https://deb.debian.org/debian-security
+Suites: trixie-security
+Components: main
+Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 
 Types: deb
 URIs: http://mirror.stw.pengutronix.de/ptx/ptxinternal/
