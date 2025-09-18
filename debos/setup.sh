@@ -10,6 +10,6 @@ prepare
 
 sudo -E apt-get install --assume-yes --no-install-recommends \
     debos device-tree-compiler dosfstools e2fsprogs genimage \
-    user-mode-linux rauc squashfs-tools
+    make user-mode-linux rauc squashfs-tools
 
 cleanup
