@@ -3,13 +3,13 @@ name: Debian trixie based machines
 on:
   push:
     branches:
-      - main
+      - lgo/git-alternate-object
   workflow_dispatch:
 
 jobs:
   trixie-base:
     name: Base (trixie)
-    runs-on: [self-hosted, forrest, debian-trixie-base]
+    runs-on: [self-hosted, forrest, debian-trixie-gitcache-base]
     steps:
       - name: Install essential packages
         run: |
@@ -35,7 +35,7 @@ jobs:
   trixie-debos:
     name: Debos (trixie)
     needs: trixie-base
-    runs-on: [self-hosted, forrest, debian-trixie-debos]
+    runs-on: [self-hosted, forrest, debian-trixie-gitcache-debos]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -52,7 +52,7 @@ jobs:
   trixie-yocto:
     name: Yocto (trixie)
     needs: trixie-base
-    runs-on: [self-hosted, forrest, debian-trixie-yocto]
+    runs-on: [self-hosted, forrest, debian-trixie-gitcache-yocto]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -69,7 +69,7 @@ jobs:
   trixie-ptxdist:
     name: PTXdist (trixie)
     needs: trixie-base
-    runs-on: [self-hosted, forrest, debian-trixie-ptxdist]
+    runs-on: [self-hosted, forrest, debian-trixie-gitcache-ptxdist]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
