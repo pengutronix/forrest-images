@@ -15,6 +15,13 @@ sudo sed -i "s/,discard,/,nodiscard,/" /etc/fstab
 mkdir -p ~/.ssh
 cat "$selfdir/known_hosts" >> ~/.ssh/known_hosts
 
+# Set up a common git repository that objects are searched in before being
+# downloaded from the internet.
+sudo mkdir -p /var/cache/forrest /etc/git
+sudo git init --bare "/var/cache/forrest/common.git"
+sudo cp -R "${selfdir}/git-template" /etc/git/template
+sudo cp "${selfdir}/gitconfig" /etc/gitconfig
+
 prepare
 
 # The unattended-upgrades service comes pre-installed on the Debian cloud
