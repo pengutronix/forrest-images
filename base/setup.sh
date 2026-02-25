@@ -15,10 +15,6 @@ sudo sed -i "s/,discard,/,nodiscard,/" /etc/fstab
 mkdir -p ~/.ssh
 cat "$selfdir/known_hosts" >> ~/.ssh/known_hosts
 
-# Git repositories that can be used as reference to speed up clones.
-sudo mkdir -p /srv/shared-git
-echo "shared-git /srv/shared-git 9p defaults,nofail 0 0" | sudo tee -a /etc/fstab
-
 prepare
 
 # The unattended-upgrades service comes pre-installed on the Debian cloud
