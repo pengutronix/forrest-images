@@ -1,0 +1,11 @@
+https://github.com/labgrid-project/meta-labgrid.git
+https://github.com/openembedded/meta-openembedded.git
+https://github.com/pengutronix/meta-ptx.git
+https://github.com/rauc/meta-rauc.git
+https://git.openembedded.org/bitbake
+https://git.openembedded.org/openembedded-core
+https://git.yoctoproject.org/meta-arm
+https://git.yoctoproject.org/meta-security
+https://git.yoctoproject.org/meta-selinux
+https://git.yoctoproject.org/meta-virtualization
+https://git.yoctoproject.org/poky

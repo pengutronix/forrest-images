@@ -14,6 +14,8 @@ cat "$selfdir/ssh_config" >> ~/.ssh/config
 sudo mkdir -p /srv/cache
 echo "cache /srv/cache 9p defaults,nofail 0 0" | sudo tee -a /etc/fstab
 
+cache_git_repos "${selfdir}/cached-repos"
+
 prepare
 
 sudo -E apt-get install --assume-yes --no-install-recommends \
