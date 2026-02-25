@@ -82,3 +82,17 @@ jobs:
       - uses: forrest-runner/persist@main
         with:
           token: ${{ secrets.PERSISTENCE_TOKEN }}
+
+  clone-test:
+    name: Git Clone Test
+    needs: trixie-yocto
+    runs-on: [self-hosted, forrest, debian-trixie-gitcache-yocto]
+    steps:
+      - name: Checkout Poky with cache
+        run: git clone --verbose --progress https://github.com/yoctoproject/poky.git poky-cached
+
+      - name: Disable cache
+        run: sudo rm /etc/gitconfig
+
+      - name: Checkout Poky without cache
+        run: git clone --verbose --progress https://github.com/yoctoproject/poky.git poky-uncached
