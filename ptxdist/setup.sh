@@ -10,7 +10,7 @@ debian_release=$(grep '^VERSION_CODENAME=' /etc/os-release | cut -d= -f2)
 
 sudo rm -f "/etc/apt/sources.list" "/etc/apt/sources.list.d/*"
 sudo cp "$selfdir/ptx-${debian_release}.sources" /etc/apt/sources.list.d/ptx.sources
-sudo cp "$selfdir/pengutronix-archive-keyring-2025.gpg" /usr/share/keyrings/pengutronix-archive-keyring.gpg
+sudo cp "$selfdir/pengutronix-archive-keyring-2026.gpg" /usr/share/keyrings/pengutronix-archive-keyring.gpg
 
 cat "$selfdir/ssh_config" >> ~/.ssh/config
 
