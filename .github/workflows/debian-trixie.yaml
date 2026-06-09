@@ -82,3 +82,20 @@ jobs:
       - uses: forrest-runner/persist@main
         with:
           token: ${{ secrets.PERSISTENCE_TOKEN }}
+
+  trixie-labgrid-client:
+    name: Labgrid Test Job Runner (trixie)
+    needs: trixie-base
+    runs-on: [self-hosted, forrest, debian-trixie-labgrid-client]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          path: setup-data
+
+      - name: Install Software
+        run: $PWD/setup-data/trixie-labgrid-client/setup.sh
+
+      - uses: forrest-runner/persist@main
+        with:
+          token: ${{ secrets.PERSISTENCE_TOKEN }}
