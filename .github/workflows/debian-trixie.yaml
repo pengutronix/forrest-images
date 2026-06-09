@@ -94,7 +94,7 @@ jobs:
           path: setup-data
 
       - name: Install Software
-        run: $PWD/setup-data/trixie-labgrid-client/setup.sh
+        run: $PWD/setup-data/labgrid-client/setup.sh
 
       - uses: forrest-runner/persist@main
         with:
