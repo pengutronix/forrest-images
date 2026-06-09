@@ -84,7 +84,7 @@ jobs:
           token: ${{ secrets.PERSISTENCE_TOKEN }}
 
   trixie-labgrid-client:
-    name: Labgrid Test Job Runner (trixie)
+    name: Labgrid Client (trixie)
     needs: trixie-base
     runs-on: [self-hosted, forrest, debian-trixie-labgrid-client]
     steps:
