@@ -2,18 +2,17 @@
 Name=enp0s4
 
 [Network]
-Description=Provides Access to the openlab network
+Description=Provides Access to the Customers KernelCI network
+Domains=cuskci.stw.pengutronix.de
 DHCP=ipv4
 LLMNR=no
 MulticastDNS=no
 UseDomains=no
 
 [DHCPv4]
-UseDNS=no
 UseNTP=no
 UseHostname=no
 UseGateway=no
 
 [IPv6AcceptRA]
-UseDNS=no
 UseGateway=no
