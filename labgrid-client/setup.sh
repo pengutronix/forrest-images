@@ -6,6 +6,8 @@ self="$(realpath "${0}")" && selfdir="$(dirname "${self}")"
 
 source "${selfdir}/../common/common.sh"
 
+cat "$selfdir/ssh_config" >> ~/.ssh/config
+
 prepare
 
 sudo cp "${selfdir}/20-cuskci.network" /etc/systemd/network/
