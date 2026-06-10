@@ -17,10 +17,10 @@ sudo -E apt-get install --assume-yes --no-install-recommends \
 
 sudo usermod -aG kvm runner
 
-sudo -E pipx --global install --include-deps \
+sudo -E pipx install --global --include-deps \
     git+https://github.com/labgrid-project/labgrid
 
-sudo -E pipx --global inject labgrid \
+sudo -E pipx inject --global labgrid \
     pytest-benchmark pytest-cov pytest-dependency pytest-isort pytest-mock
 
 echo 'LG_COORDINATOR="hekla.cuskci.stw.pengutronix.de:20408"' \
