@@ -13,6 +13,8 @@ source "${selfdir}/../common/common.sh"
 sudo sed -i "s/,discard,/,nodiscard,/" /etc/fstab
 
 mkdir -p ~/.ssh
+curl --proto '=https' --tlsv1.2 -sSf \
+    https://www.pengutronix.de/ssh_known_hosts/all_keys.txt -o ~/.ssh/known_hosts
 cat "$selfdir/known_hosts" >> ~/.ssh/known_hosts
 
 # Git repositories that can be used as reference to speed up clones.
