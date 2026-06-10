@@ -16,4 +16,7 @@ sudo -E apt-get install --assume-yes --no-install-recommends \
 sudo -E pipx install --global --include-deps \
     git+https://github.com/labgrid-project/labgrid
 
+echo 'LG_COORDINATOR="hekla.cuskci.stw.pengutronix.de:20408"' \
+    | sudo tee -a /etc/environment
+
 cleanup
