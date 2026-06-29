@@ -30,6 +30,8 @@ prepare
 sudo systemctl stop unattended-upgrades
 sudo -E apt-get --assume-yes purge openssh-server unattended-upgrades
 
-sudo -E apt-get --assume-yes install rsync ssh gcc
+sudo -E apt-get --assume-yes install libtpm2-pkcs11-1 rsync ssh
+
+sudo usermod -aG tss "$(whoami)"
 
 cleanup

@@ -15,7 +15,7 @@ sudo cp "${selfdir}/20-cuskci.network" /etc/systemd/network/
 sudo -E apt-get install --assume-yes --no-install-recommends \
     pipx qemu-system-x86 ovmf swtpm
 
-sudo usermod -aG kvm runner
+sudo usermod -aG kvm "$(whoami)"
 
 sudo -E pipx install --global --include-deps \
     git+https://github.com/labgrid-project/labgrid
