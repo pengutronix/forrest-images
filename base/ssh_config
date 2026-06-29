@@ -2,6 +2,12 @@
 Match exec "test -e /dev/tpm0 -a -e ~/.tpm2_pkcs11"
   PKCS11Provider /usr/lib/x86_64-linux-gnu/pkcs11/libtpm2_pkcs11.so
 
+# We do not allow outgoing traffic on the SSH port from our VMs.
+# Work around that for access to GitHub.
+Host github.com
+  Hostname ssh.github.com
+  Port 443
+
 Host ptxdist-cache
   Hostname 10.0.2.2
   User ptxdist-cache
