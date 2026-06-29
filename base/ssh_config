@@ -7,13 +7,3 @@ Match exec "test -e /dev/tpm0 -a -e ~/.tpm2_pkcs11"
 Host github.com
   Hostname ssh.github.com
   Port 443
-
-Host ptxdist-cache
-  Hostname 10.0.2.2
-  User ptxdist-cache
-  IdentityFile ~/.ssh/id_ed25519
-
-Host yocto-cache
-  Hostname 10.0.2.2
-  User yocto-cache
-  IdentityFile ~/.ssh/id_ed25519
