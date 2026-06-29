@@ -6,4 +6,5 @@ Match exec "test -e /dev/tpm0 -a -e ~/.tpm2_pkcs11"
 # Work around that for access to GitHub.
 Host github.com
   Hostname ssh.github.com
+  HostKeyAlias github.com
   Port 443
