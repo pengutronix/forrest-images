@@ -31,7 +31,7 @@ prepare
 sudo systemctl stop unattended-upgrades
 sudo -E apt-get --assume-yes purge openssh-server unattended-upgrades
 
-sudo -E apt-get --assume-yes install libtpm2-pkcs11-1 rsync ssh
+sudo -E apt-get --assume-yes install libtpm2-pkcs11-1 rsync ssh gh
 
 sudo usermod -aG tss "$(whoami)"
 
