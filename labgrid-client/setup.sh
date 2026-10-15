@@ -6,6 +6,10 @@ self="$(realpath "${0}")" && selfdir="$(dirname "${self}")"
 
 source "${selfdir}/../common/common.sh"
 
+# Save information about this build to ~/runner/.setup_info.
+# This will be printed in the "Setup Job" step of each build using this image.
+save_setup_info
+
 cat "$selfdir/ssh_config" >> ~/.ssh/config
 
 prepare

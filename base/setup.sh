@@ -6,6 +6,10 @@ self="$(realpath "${0}")" && selfdir="$(dirname "${self}")"
 
 source "${selfdir}/../common/common.sh"
 
+# Save information about this build to ~/runner/.setup_info.
+# This will be printed in the "Setup Job" step of each build using this image.
+save_setup_info
+
 # Most copies of this disk image will not be persisted.
 # Instead they will only live for one build job and will then be deleted.
 # Do not waste time sending discard request in that case.
