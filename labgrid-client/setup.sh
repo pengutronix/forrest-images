@@ -17,7 +17,7 @@ sudo -E apt-get install --assume-yes --no-install-recommends \
 
 sudo usermod -aG kvm "$(whoami)"
 
-sudo -E pipx install --global --include-deps \
+sudo -E pipx install --global --include-deps -vv \
     git+https://github.com/labgrid-project/labgrid
 
 sudo -E pipx inject --global labgrid \
